@@ -142,10 +142,10 @@ std::ostream& operator<<(std::ostream& stream, const CMyVektor& myVec)
 CMyVektor gradient(CMyVektor x, double(*funktion)(CMyVektor x))
 {
 	double h = 0.00000001; // h = 10^-8
-	double festTerm = funktion(x);
-	CMyVektor gradV(x);
+	double festTerm = funktion(x); //1x ausrechnen reicht pro Anwendung
+	CMyVektor gradV(x); //just init
 	for (int i = 0; i < x.getDimension(); ++i)
-	{
+	{	//für jedes gi: Addiere h nur auf i-te Komponente, berechne grad
 		CMyVektor incV(x);
 		incV[i] += h;
 		gradV[i] = (funktion(incV) - festTerm) / h;
@@ -159,16 +159,16 @@ void maximize(CMyVektor x, double(*funktion)(CMyVektor x), double lambda = 1.)
 	{	//Init
 		double limit = 0.00001; // Abbruchgrenze
 		CMyVektor xn = xx + lambda * gradient(xx, funktion);
-		std::cout << "___________________________\n";
+		std::cout << "_____________________________________\n";
 		std::cout << "Schritt " << i + 1 << " --- " << "Lambda: " << lambda << std::endl;
-		std::cout << "  xx : " << xx << std::endl;
-		std::cout << "f(xx): " << funktion(xx) << std::endl;
+		std::cout << "  x  : " << xx << std::endl;
+		std::cout << "f(x) : " << funktion(xx) << std::endl;
 		std::cout << "  xn : " << xn << std::endl;
 		std::cout << "f(xn): " << funktion(xn) << std::endl;
 		if (funktion(xn) > funktion(xx))
 		{	//Teste auf doppelte Schrittweite
 			CMyVektor xt = xx + 2 * lambda * gradient(xx, funktion);
-			std::cout << "Teste 2x Schrittweite:\n";
+			std::cout << "Teste 2x Schrittweite (Lambda = "<< 2*lambda <<"):\n";
 			std::cout << "  xt : " << xt << std::endl;
 			std::cout << "f(xt): " << funktion(xt) << std::endl;
 			if (funktion(xt) > funktion(xn))
@@ -184,7 +184,6 @@ void maximize(CMyVektor x, double(*funktion)(CMyVektor x), double lambda = 1.)
 		}
 		else
 		{	//Halbiere Schrittweite solange, bis xn > xx
-			std::cout << "Schleichmodus aktiviert:\n";
 			while (funktion(xn) <= funktion(xx) && gradient(xx, funktion).getLaenge() >= limit)
 			{
 				lambda /= 2;
@@ -195,7 +194,7 @@ void maximize(CMyVektor x, double(*funktion)(CMyVektor x), double lambda = 1.)
 			}
 			xx = xn;
 		}
-		std::cout << "Laenge des Gradienten:\n";
+		std::cout << "||grad f(x)|| = ";
 		std::cout << gradient(xx, funktion).getLaenge() << std::endl;
 		if (gradient(xx, funktion).getLaenge() < limit)
 		{
@@ -204,6 +203,6 @@ void maximize(CMyVektor x, double(*funktion)(CMyVektor x), double lambda = 1.)
 		}
 	}
 	std::cout << "Endwerte:\n";
-	std::cout << "  xx : " << xx << std::endl;
-	std::cout << "f(xx): " << funktion(xx) << std::endl;
+	std::cout << "  x  : " << xx << std::endl;
+	std::cout << "f(x) : " << funktion(xx) << std::endl;
 }
