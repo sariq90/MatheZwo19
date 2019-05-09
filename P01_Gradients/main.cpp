@@ -14,8 +14,8 @@ double g(const CMyVektor x) //n=3
 
 int main()
 {
-	//maximize({0.2,-2.1},f);
-	maximize({ 0,0,0 }, g, 0.1);
+	maximize({0.2,-2.1},f);
+	//maximize({ 0,0,0 }, g, 0.1);
 
 
 	std::system("pause");
