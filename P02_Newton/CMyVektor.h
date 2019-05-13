@@ -168,7 +168,7 @@ std::ostream& operator<<(std::ostream& stream, const CMyVektor& myVec)
 	for (int i = 0; i < myVec.getDimension(); ++i)
 	{
 		std::cout << " " << myVec[i];
-		if (i + 1 != myVec.getDimension())
+		if (i+1 != myVec.getDimension())
 			std::cout << ",";
 	}
 	std::cout << " ]";
