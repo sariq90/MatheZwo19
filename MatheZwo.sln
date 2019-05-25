@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "P01_Gradients", "P01_Gradie
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "P02_Newton", "P02_Newton\P02_Newton.vcxproj", "{8CCF6258-351A-4112-82A1-D348CF86BC06}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "P03_Euler", "P03_Euler\P03_Euler.vcxproj", "{5E4CF5D8-3C7C-4563-B85E-410AF009267D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{8CCF6258-351A-4112-82A1-D348CF86BC06}.Release|x64.Build.0 = Release|x64
 		{8CCF6258-351A-4112-82A1-D348CF86BC06}.Release|x86.ActiveCfg = Release|Win32
 		{8CCF6258-351A-4112-82A1-D348CF86BC06}.Release|x86.Build.0 = Release|Win32
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Debug|x64.ActiveCfg = Debug|x64
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Debug|x64.Build.0 = Debug|x64
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Debug|x86.ActiveCfg = Debug|Win32
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Debug|x86.Build.0 = Debug|Win32
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Release|x64.ActiveCfg = Release|x64
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Release|x64.Build.0 = Release|x64
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Release|x86.ActiveCfg = Release|Win32
+		{5E4CF5D8-3C7C-4563-B85E-410AF009267D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
